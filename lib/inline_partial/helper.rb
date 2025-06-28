@@ -10,7 +10,7 @@ module InlinePartial
       nil
     end
 
-    def render_inline_partial(name, *args, collection: nil)
+    def render_inline_partial(name, object = nil, collection: nil)
       raise ArgumentError, "partial name must be present (not nil)" if name.nil?
 
       if collection
@@ -21,7 +21,7 @@ module InlinePartial
         partial = @_inline_partials&.[](name)
         raise ArgumentError, "inline partial :#{name.inspect} not found" unless partial
 
-        capture(*args, &partial)
+        capture(object, &partial)
       end
     end
   end
