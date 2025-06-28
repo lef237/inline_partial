@@ -1,8 +1,4 @@
 # frozen_string_literal: true
-
-require_relative "inline_partial/version"
-
-module InlinePartial
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "inline_partial/version"
+require "inline_partial/helper"
+require "inline_partial/railtie" if defined?(Rails)

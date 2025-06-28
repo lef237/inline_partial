@@ -1,4 +1,14 @@
 module InlinePartial
   VERSION: String
-  # See the writing guide of rbs: https://github.com/ruby/rbs#guides
+
+  module Helper
+    # パーシャルの定義（ブロック必須）
+    def inline_partial: ((Symbol | String)?) { (*untyped) -> untyped } -> nil
+
+    # collection キーワード引数に対応
+    def render_inline_partial: (Symbol | String, *untyped, ?collection: untyped) -> untyped
+  end
+
+  class Railtie < Rails::Railtie
+  end
 end

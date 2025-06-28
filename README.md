@@ -1,28 +1,61 @@
-# InlinePartial
+# inline_partial
 
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/inline_partial`. To experiment with that code, run `bin/console` for an interactive prompt.
+**inline_partial** is a Rails helper that lets you define reusable, private ERB partials inline — without creating extra files.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
-Install the gem and add to the application's Gemfile by executing:
-
 ```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-```
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+gem install inline_partial
+# or in Gemfile
+bundle add inline_partial
 ```
 
 ## Usage
 
-TODO: Write usage instructions here
+You can define a reusable ERB partial directly in your view:
+
+```erb
+<% inline_partial(:foo) do %>
+  <p>Foo content</p>
+<% end %>
+
+<%= render_inline_partial :foo %>
+```
+
+This example defines a partial template named `user_row`. In this way, you can define partial templates with any name.
+
+```erb
+<% inline_partial(:user_row) do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+  </tr>
+<% end %>
+```
+
+You can then render this partial with a single object.
+
+```erb
+<%= render_inline_partial :user_row, @user %>
+```
+
+When calling multiple items, be sure to specify the `collection` option.
+
+```erb
+<table>
+  <%= render_inline_partial :user_row, collection: @users %>
+</table>
+```
+
+You can also define inline partials that take string arguments or HTML-safe content.
+
+```erb
+<% inline_partial(:plain_text) { |msg| %><p><%= msg %></p><% } %>
+<% inline_partial(:html_safe)  { |msg| %><div><%= raw(msg) %></div><% } %>
+
+<%= render_inline_partial :plain_text, "hello" %>
+<%= render_inline_partial :html_safe, "<b>hello</b>" %>
+```
 
 ## Development
 
@@ -32,7 +65,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/inline_partial. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/inline_partial/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/lef237/inline_partial. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/lef237/inline_partial/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -40,4 +73,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the InlinePartial project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/inline_partial/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the InlinePartial project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/lef237/inline_partial/blob/main/CODE_OF_CONDUCT.md).
