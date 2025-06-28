@@ -2,6 +2,10 @@
 
 - No changes yet.
 
+## [0.1.3] - 2025-06-28
+
+- Remove default value for inline_partial name parameter
+
 ## [0.1.2] - 2025-06-28
 
 - Update README to emphasize that partial templates can be defined with **any name**

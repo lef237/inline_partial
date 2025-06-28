@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    inline_partial (0.1.2)
+    inline_partial (0.1.3)
       rails (>= 6.1)
 
 GEM

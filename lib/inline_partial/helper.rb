@@ -2,7 +2,7 @@
 
 module InlinePartial
   module Helper
-    def inline_partial(name = :_, &block)
+    def inline_partial(name, &block)
       raise ArgumentError, "partial name must be present (not nil)" if name.nil?
 
       @_inline_partials ||= {}
