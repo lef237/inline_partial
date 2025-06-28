@@ -1,6 +1,7 @@
 ## [Unreleased]
 
 - Update README to emphasize that partial templates can be defined with **any name**
+- Clarify README and RBS documentation for inline_partial usage and parameters
 
 ## [0.1.1] - 2025-06-28
 

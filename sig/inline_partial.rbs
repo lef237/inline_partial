@@ -3,10 +3,10 @@ module InlinePartial
 
   module Helper
     # パーシャルの定義（ブロック必須）
-    def inline_partial: ((Symbol | String)?) { (*untyped) -> untyped } -> nil
+    def inline_partial: ((Symbol | String), { (*untyped) -> untyped }) -> nil
 
-    # collection キーワード引数に対応
-    def render_inline_partial: (Symbol | String, *untyped, ?collection: untyped) -> untyped
+    # objectパラメータとcollectionキーワード引数に対応
+    def render_inline_partial: ((Symbol | String), ?untyped, ?collection: untyped) -> untyped
   end
 
   class Railtie < Rails::Railtie
