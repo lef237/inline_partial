@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module InlinePartial
   class Railtie < Rails::Railtie
     initializer "inline_partial.helper" do

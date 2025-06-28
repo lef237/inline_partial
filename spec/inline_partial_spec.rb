@@ -6,7 +6,7 @@ RSpec.describe InlinePartial do
   # Mock ActionView's capture and concat methods for testing
   def capture(*args, &block)
     @_captured_output = ""
-    block.call(*args) if block
+    block&.call(*args)
     @_captured_output
   end
 
@@ -27,7 +27,7 @@ RSpec.describe InlinePartial do
 
   it "renders inline partial with collection" do
     inline_partial(:item) { |name| concat "- #{name}\n" }
-    result = render_inline_partial(:item, collection: ["Apple", "Banana", "Cherry"])
+    result = render_inline_partial(:item, collection: %w[Apple Banana Cherry])
     expect(result).to eq "- Apple\n- Banana\n- Cherry\n"
   end
 
