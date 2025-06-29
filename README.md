@@ -4,9 +4,21 @@
 
 ## Installation
 
+Add the following line to your `Gemfile`:
+
+```ruby
+gem "inline_partial"
+```
+
+Then run:
+
 ```bash
-gem install inline_partial
-# or in Gemfile
+bundle install
+```
+
+Or, you can add it directly with:
+
+```bash
 bundle add inline_partial
 ```
 
