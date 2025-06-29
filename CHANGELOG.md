@@ -2,6 +2,10 @@
 
 - No changes yet.
 
+## [0.1.4] - 2025-06-29
+
+- Update installation instructions in README to clarify Gemfile usage
+
 ## [0.1.3] - 2025-06-28
 
 - Remove default value for inline_partial name parameter
