@@ -2,13 +2,29 @@ module InlinePartial
   VERSION: String
 
   module Helper
-    # パーシャルの定義（ブロック必須）
-    def inline_partial: ((Symbol | String), { (*untyped) -> untyped }) -> nil
+    @_inline_partials: Hash[(Symbol | String), ^(*untyped) -> untyped]
 
-    # objectパラメータとcollectionキーワード引数に対応
-    def render_inline_partial: ((Symbol | String), ?untyped, ?collection: untyped) -> untyped
+    def inline_partial: ((Symbol | String)) { (*untyped) -> untyped } -> nil
+
+    def render_inline_partial: ((Symbol | String), ?Object, ?collection: Array[untyped]) -> String
+
+    private
+
+    def safe_join: (Array[untyped]) -> untyped
+    def capture: (untyped) { (*untyped) -> untyped } -> untyped
   end
 
-  class Railtie < Rails::Railtie
+  class Railtie
+    def self.initializer: (String) { () -> void } -> void
   end
+end
+
+module Rails
+  class Railtie
+    def self.initializer: (String) { () -> void } -> void
+  end
+end
+
+module ActiveSupport
+  def self.on_load: (Symbol) { () -> void } -> void
 end
