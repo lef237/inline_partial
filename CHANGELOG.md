@@ -2,6 +2,10 @@
 
 - No changes yet.
 
+## [0.1.5] - 2025-06-30
+
+- Add Steepfile for type checking configuration and update RBS signatures for inline_partial methods
+
 ## [0.1.4] - 2025-06-29
 
 - Update installation instructions in README to clarify Gemfile usage
