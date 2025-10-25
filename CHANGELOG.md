@@ -2,6 +2,10 @@
 
 - No changes yet.
 
+## [0.1.6] - 2025-10-25
+
+- Fix gemspec homepage URL to point to project repository
+
 ## [0.1.5] - 2025-06-30
 
 - Add Steepfile for type checking configuration and update RBS signatures for inline_partial methods
