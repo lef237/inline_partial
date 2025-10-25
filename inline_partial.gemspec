@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Private partials in plain ERB"
   spec.description = "Define and render ERB partials inline without extra files."
-  spec.homepage = "https://github.com/lef237"
+  spec.homepage = "https://github.com/lef237/inline_partial"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.1.0"
 
