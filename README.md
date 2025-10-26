@@ -32,9 +32,12 @@ You can define a reusable ERB partial directly in your view:
 <% end %>
 
 <%= render_inline_partial :foo %>
+<%= render_inline_partial :foo %>
 ```
 
-This example defines a partial template named `:user_row`. You can define inline partials with **any name**, using either a **symbol** or a **string**.
+The same inline partial can be rendered multiple times within the same view.
+
+You can define inline partials with **any name**, using either a **symbol** or a **string**. This example defines a partial template named `:user_row`:
 
 ```erb
 <% inline_partial(:user_row) do |user| %>
